@@ -1,8 +1,8 @@
-@TC001
+@Test01
 Feature:Register User
 
   Scenario:Register User
-    Given Navigate to url "exerciseUrl"
+    Given Navigate to url "autoUrl"
     When Verify that home page is visible successfully
     Then Click on Signup Login button
     Then Verify New User Signup! is visible

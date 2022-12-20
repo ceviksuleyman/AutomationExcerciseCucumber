@@ -58,4 +58,15 @@ public class AutoExercisePage {
     public WebElement deleteAccountButton;
     @FindBy(xpath = "//h2[.='Account Deleted!']")
     public WebElement accountDeletedMessage;
+    @FindBy(xpath = "//h2[.='Login to your account']")
+    public WebElement loginToYourAccount;
+    @FindBy(xpath = "//input[@data-qa='login-email']")
+    public WebElement emailBoxLogin;
+    @FindBy(xpath = "//input[@data-qa='login-password']")
+    public WebElement passwordBoxLogin;
+    @FindBy(xpath = "//button[@data-qa='login-button']")
+    public WebElement loginButton;
+    @FindBy(xpath = "//p[.='Your email or password is incorrect!']")
+    public WebElement yourEmailPasswordIncorrectText;
+
 }

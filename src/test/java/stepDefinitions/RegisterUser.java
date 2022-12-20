@@ -22,7 +22,7 @@ public class RegisterUser {
     @Given("Navigate to url {string}")
     public void navigateToUrl(String url) {
 
-        Driver.getDriver().get(ConfigReader.getProperty("exerciseUrl"));
+        Driver.getDriver().get(ConfigReader.getProperty("autoUrl"));
     }
 
     @When("Verify that home page is visible successfully")
@@ -81,7 +81,6 @@ public class RegisterUser {
         ReusableMethods.selectDropDown(page.dayDDM);
         ReusableMethods.selectDropDown(page.monthDDM);
         ReusableMethods.selectDropDown(page.yearDDM);
-
     }
 
     @Then("Select checkbox Sign up for our newsletter!")
