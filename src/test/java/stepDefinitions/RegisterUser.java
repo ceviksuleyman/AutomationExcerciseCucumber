@@ -66,6 +66,7 @@ public class RegisterUser {
         String actualText = page.enterAccountInformationText.getText();
 
         assertEquals(expectedText, actualText);
+        assertTrue(page.enterAccountInformationText.isDisplayed());
     }
 
     @Then("Fill details Title, Name, Email, Password, Date of birth")
@@ -147,6 +148,11 @@ public class RegisterUser {
     public void clickDeleteAccountButton() {
 
         jsScrollClick(page.deleteAccountButton);
+        waitFor(3);
+        Driver.getDriver().navigate().refresh();
+        if (page.dismissButton.size() != 0) {
+            page.dismissButton.get(0).click();
+        }
     }
 
     @And("Verify that ACCOUNT DELETED! is visible and click Continue button")
@@ -155,7 +161,7 @@ public class RegisterUser {
         String expectedText = "ACCOUNT DELETED!";
         String actualText = page.accountDeletedMessage.getText();
 
-        assertEquals(expectedText,actualText);
+        assertEquals(expectedText, actualText);
 
         jsScrollClick(page.continueButton);
     }

@@ -18,7 +18,7 @@ import static utilities.ReusableMethods.getActions;
 
 public class Hooks {
 
-    static AutoExercisePage page = new AutoExercisePage();
+    AutoExercisePage page = new AutoExercisePage();
     static String email;
     static String password;
 
@@ -47,18 +47,14 @@ public class Hooks {
         page.nameBoxSignup.sendKeys(Faker.instance().name().name());
         page.emailBoxSignup.sendKeys(email);
         page.signupButton.click();
-        for (WebElement gender : page.genderList) {
-            gender.click();
-            waitFor(1);
-        }
+        page.genderList.get(0).click();
         page.passwordBoxNewSignup.sendKeys(password);
         ReusableMethods.selectDropDown(page.dayDDM);
         ReusableMethods.selectDropDown(page.monthDDM);
         ReusableMethods.selectDropDown(page.yearDDM);
         jsScrollClick(page.newsletter);
         jsScrollClick(page.partners);
-        getActions()
-                .sendKeys(Faker.instance().name().firstName()).sendKeys(Keys.TAB)
+        getActions().sendKeys(Faker.instance().name().firstName()).sendKeys(Keys.TAB)
                 .sendKeys(Faker.instance().name().lastName()).sendKeys(Keys.TAB)
                 .sendKeys(Faker.instance().company().name()).sendKeys(Keys.TAB)
                 .sendKeys(Faker.instance().address().streetAddress()).sendKeys(Keys.TAB)
@@ -66,8 +62,7 @@ public class Hooks {
         selectDropDown(page.country);
         jsScroll(page.state);
         waitFor(2);
-        getActions()
-                .click(page.state).sendKeys(Faker.instance().address().state()).sendKeys(Keys.TAB)
+        getActions().click(page.state).sendKeys(Faker.instance().address().state()).sendKeys(Keys.TAB)
                 .sendKeys(Faker.instance().address().city()).sendKeys(Keys.TAB)
                 .sendKeys(Faker.instance().address().zipCode()).sendKeys(Keys.TAB)
                 .sendKeys(Faker.instance().phoneNumber().cellPhone()).perform();

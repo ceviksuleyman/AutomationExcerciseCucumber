@@ -3,7 +3,6 @@ package stepDefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pages.AutoExercisePage;
-import utilities.ReusableMethods;
 
 import static org.junit.Assert.*;
 import static utilities.ReusableMethods.jsScrollClick;
@@ -11,6 +10,7 @@ import static utilities.ReusableMethods.jsScrollClick;
 public class LoginUserCorrect {
 
     AutoExercisePage page = new AutoExercisePage();
+
     @And("Verify Login to your account is visible")
     public void verifyLoginToYourAccountIsVisible() {
 

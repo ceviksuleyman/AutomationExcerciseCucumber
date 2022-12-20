@@ -68,5 +68,7 @@ public class AutoExercisePage {
     public WebElement loginButton;
     @FindBy(xpath = "//p[.='Your email or password is incorrect!']")
     public WebElement yourEmailPasswordIncorrectText;
+    @FindBy(css = "#dismiss-button>div")
+    public List<WebElement> dismissButton;
 
 }
