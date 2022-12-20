@@ -149,7 +149,7 @@ public class RegisterUser {
 
         jsScrollClick(page.deleteAccountButton);
         waitFor(3);
-        Driver.getDriver().navigate().refresh();
+        //Driver.getDriver().navigate().refresh();
         if (page.dismissButton.size() != 0) {
             page.dismissButton.get(0).click();
         }
