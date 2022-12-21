@@ -7,11 +7,10 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
 import pages.AutoExercisePage;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
+
 
 import static utilities.ReusableMethods.*;
 import static utilities.ReusableMethods.getActions;
@@ -35,6 +34,7 @@ public class Hooks {
         }
         Driver.closeDriver();
     }
+
 
     @Before(order = 1, value = "@Test02")
     public void registerUser() {

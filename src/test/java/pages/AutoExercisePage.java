@@ -70,5 +70,7 @@ public class AutoExercisePage {
     public WebElement yourEmailPasswordIncorrectText;
     @FindBy(css = "#dismiss-button>div")
     public List<WebElement> dismissButton;
+    @FindBy(xpath = "//a[@href='/logout']")
+    public WebElement logoutButton;
 
 }

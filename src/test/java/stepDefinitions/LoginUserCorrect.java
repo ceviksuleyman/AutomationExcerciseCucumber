@@ -17,7 +17,7 @@ public class LoginUserCorrect {
         assertTrue(page.loginToYourAccount.isDisplayed());
     }
 
-    @And("Enter correct email address and password")
+    @And("Enter correct email address and password hooks")
     public void enterCorrectEmailAddressAndPassword() {
 
         page.emailBoxLogin.sendKeys(Hooks.email);
