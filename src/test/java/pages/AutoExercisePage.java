@@ -42,6 +42,8 @@ public class AutoExercisePage {
     public WebElement newsletter;
     @FindBy(id = "optin")
     public WebElement partners;
+    @FindBy(css = "#first_name")
+    public WebElement firstnameBoxNewSignup;
     @FindBy(css = "#country")
     public WebElement country;
     @FindBy(css = "#state")
