@@ -10,6 +10,7 @@ import org.openqa.selenium.TakesScreenshot;
 import pages.AutoExercisePage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 
 import static utilities.ReusableMethods.*;
@@ -49,24 +50,35 @@ public class Hooks {
         page.signupButton.click();
         page.genderList.get(0).click();
         page.passwordBoxNewSignup.sendKeys(password);
+
         selectDropDown(page.dayDDM);
         selectDropDown(page.monthDDM);
         selectDropDown(page.yearDDM);
         jsScrollClick(page.newsletter);
         jsScrollClick(page.partners);
-        getActions().sendKeys(Faker.instance().name().firstName()).sendKeys(Keys.TAB)
+
+        jsScroll(page.firstnameBoxNewSignup);
+        waitFor(2);
+        getActions()
+                .click(page.firstnameBoxNewSignup)
+                .sendKeys(Faker.instance().name().firstName()).sendKeys(Keys.TAB)
                 .sendKeys(Faker.instance().name().lastName()).sendKeys(Keys.TAB)
                 .sendKeys(Faker.instance().company().name()).sendKeys(Keys.TAB)
                 .sendKeys(Faker.instance().address().streetAddress()).sendKeys(Keys.TAB)
                 .sendKeys(Faker.instance().address().fullAddress()).sendKeys(Keys.TAB).perform();
+
         selectDdmIndex(page.country);
-        jsScroll(page.state);
+        jsScroll(page.country);
         waitFor(2);
-        getActions().click(page.state).sendKeys(Faker.instance().address().state()).sendKeys(Keys.TAB)
+
+        getActions()
+                .click(page.state)
+                .sendKeys(Faker.instance().address().state()).sendKeys(Keys.TAB)
                 .sendKeys(Faker.instance().address().city()).sendKeys(Keys.TAB)
                 .sendKeys(Faker.instance().address().zipCode()).sendKeys(Keys.TAB)
                 .sendKeys(Faker.instance().phoneNumber().cellPhone()).perform();
         jsScrollClick(page.createAccountButton);
+
         Driver.quitDriver();
     }
 }
