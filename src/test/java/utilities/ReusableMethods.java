@@ -342,22 +342,31 @@ public class ReusableMethods {
 
         By locator = By.xpath("//label[text()='" + fieldName + "']//following-sibling::input");
         By locator2 = By.xpath("//*[text()='The Appointment is updated with identifier " + id + "']");
-        Actions actions = new Actions(getDriver());
-        actions.click(getDriver().findElement(locator)).perform();
 
+        Actions actions = new Actions(getDriver());
+
+        actions.click(getDriver().findElement(locator)).perform();
     }
 
-    public static void selectDropDown(WebElement element){
+    public static void selectDropDown(WebElement element) {
 
-        List<WebElement> list = ReusableMethods.select(element).getOptions();
+        List<WebElement> list = select(element).getOptions();
 
-        int index = ReusableMethods.random().nextInt(list.size());
+        int index = random().nextInt(list.size());
 
-        while (index == 0){
+        while (index == 0) {
 
-            index = ReusableMethods.random().nextInt(list.size());
-
+            index = random().nextInt(list.size());
         }
-        ReusableMethods.select(element).selectByIndex(index);
+        select(element).selectByIndex(index);
+    }
+
+    public static void selectDdmIndex(WebElement element) {
+
+        List<WebElement> list = select(element).getOptions();
+
+        int index = random().nextInt(list.size());
+
+        select(element).selectByIndex(index);
     }
 }

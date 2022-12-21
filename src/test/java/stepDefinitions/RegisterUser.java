@@ -149,10 +149,6 @@ public class RegisterUser {
 
         jsScrollClick(page.deleteAccountButton);
         waitFor(3);
-        //Driver.getDriver().navigate().refresh();
-        if (page.dismissButton.size() != 0) {
-            page.dismissButton.get(0).click();
-        }
     }
 
     @And("Verify that ACCOUNT DELETED! is visible and click Continue button")

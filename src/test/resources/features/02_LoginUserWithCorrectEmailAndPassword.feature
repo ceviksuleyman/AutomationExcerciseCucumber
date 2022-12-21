@@ -10,4 +10,4 @@ Feature: Login User with correct email and password
     Then Click login button
     Then Verify that Logged in as username is visible
     Then Click Delete Account button
-    And Verify that ACCOUNT DELETED! is visible
+    #And Verify that ACCOUNT DELETED! is visible
