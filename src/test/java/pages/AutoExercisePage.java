@@ -74,5 +74,53 @@ public class AutoExercisePage {
     public List<WebElement> dismissButton;
     @FindBy(xpath = "//a[@href='/logout']")
     public WebElement logoutButton;
+    @FindBy(xpath = "//p[.='Email Address already exist!']")
+    public WebElement emailAddressAlreadyExistText;
+    @FindBy(xpath = "//a[@href='/contact_us']")
+    public WebElement contactUsButton;
+    @FindBy(xpath = "//h2[.='Get In Touch']")
+    public WebElement getInTouchText;
+    @FindBy(css = "input[name='name']")
+    public WebElement nameContactUs;
+    @FindBy(css = "input[name='email']")
+    public WebElement emailContactUs;
+    @FindBy(css = "input[name='subject']")
+    public WebElement subjectContactUs;
+    @FindBy(css = "textarea[id='message']")
+    public WebElement messageContactUs;
+    @FindBy(css = "input[name='upload_file']")
+    public WebElement uploadFileContactUs;
+    @FindBy(css = "input[name='submit']")
+    public WebElement submitButtonContactUs;
+    @FindBy(xpath = "//div[@class='contact-form']/*[.='Success! Your details have been submitted successfully.']")
+    public WebElement successfullyContactUsText;
+    @FindBy(css = "#form-section>.btn.btn-success")
+    public WebElement homeReturnPageButton;
+    @FindBy(xpath = "//a[@href='/test_cases']")
+    public WebElement testCasesButton;
+    @FindBy(xpath = "//h2[@class='title text-center']")
+    public WebElement testCasesPage;
+    @FindBy(xpath = "//a[@href='/products']")
+    public WebElement productsButton;
+    @FindBy(css = ".features_items>h2")
+    public WebElement allProductsPage;
+    @FindBy(xpath = "//div[@class='productinfo text-center']/p")
+    public List<WebElement> allProductsList;
+    @FindBy(css = ".nav.nav-pills.nav-justified>li>a")
+    public List<WebElement> viewProductButtonList;
+    @FindBy(css = ".product-information")
+    public WebElement productDetail;
+    @FindBy(css = ".product-information>h2")
+    public WebElement productName;
+    @FindBy(xpath = "//div//span//span")
+    public WebElement productPrice;
 
+    @FindBy(xpath = "(//*[@class='product-information']//p)[1]")
+    public WebElement productCategory;
+    @FindBy(xpath = "(//*[@class='product-information']//p)[2]")
+    public WebElement productAvailability;
+    @FindBy(xpath = "(//*[@class='product-information']//p)[3]")
+    public WebElement productCondition;
+    @FindBy(xpath = "(//*[@class='product-information']//p)[4]")
+    public WebElement productBrand;
 }

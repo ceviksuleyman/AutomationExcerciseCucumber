@@ -7,7 +7,7 @@ import pages.AutoExercisePage;
 import static org.junit.Assert.*;
 import static utilities.ReusableMethods.jsScrollClick;
 
-public class LoginUserCorrect {
+public class T02_LoginUserCorrect {
 
     AutoExercisePage page = new AutoExercisePage();
 

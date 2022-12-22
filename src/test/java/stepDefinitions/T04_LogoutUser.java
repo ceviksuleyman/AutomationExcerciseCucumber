@@ -6,7 +6,7 @@ import org.junit.Assert;
 import pages.AutoExercisePage;
 import utilities.ConfigReader;
 
-public class LogoutUser {
+public class T04_LogoutUser {
 
     AutoExercisePage page = new AutoExercisePage();
 

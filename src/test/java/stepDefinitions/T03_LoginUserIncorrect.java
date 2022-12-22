@@ -4,7 +4,7 @@ import io.cucumber.java.en.And;
 import org.junit.Assert;
 import pages.AutoExercisePage;
 
-public class LoginUserIncorrect {
+public class T03_LoginUserIncorrect {
 
     AutoExercisePage page = new AutoExercisePage();
 

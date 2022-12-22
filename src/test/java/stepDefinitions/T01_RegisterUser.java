@@ -15,7 +15,7 @@ import utilities.ReusableMethods;
 import static org.junit.Assert.*;
 import static utilities.ReusableMethods.*;
 
-public class RegisterUser {
+public class T01_RegisterUser {
 
     AutoExercisePage page = new AutoExercisePage();
 
