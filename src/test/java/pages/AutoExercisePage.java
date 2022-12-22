@@ -104,7 +104,7 @@ public class AutoExercisePage {
     public WebElement productsButton;
     @FindBy(css = ".features_items>h2")
     public WebElement allProductsPage;
-    @FindBy(xpath = "//div[@class='productinfo text-center']/p")
+    @FindBy(css = ".features_items>.col-sm-4>div>div>div>p")
     public List<WebElement> allProductsList;
     @FindBy(css = ".nav.nav-pills.nav-justified>li>a")
     public List<WebElement> viewProductButtonList;
@@ -114,7 +114,6 @@ public class AutoExercisePage {
     public WebElement productName;
     @FindBy(xpath = "//div//span//span")
     public WebElement productPrice;
-
     @FindBy(xpath = "(//*[@class='product-information']//p)[1]")
     public WebElement productCategory;
     @FindBy(xpath = "(//*[@class='product-information']//p)[2]")
