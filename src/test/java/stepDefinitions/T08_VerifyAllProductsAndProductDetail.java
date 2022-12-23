@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import pages.AutoExercisePage;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class T08_VerifyAllProductsAndProductDetail {
@@ -15,6 +16,10 @@ public class T08_VerifyAllProductsAndProductDetail {
     public void clickOnProductsButton() {
 
         ReusableMethods.jsScrollClick(page.productsButton);
+        Driver.getDriver().navigate().refresh();
+        ReusableMethods.waitFor(2);
+        ReusableMethods.jsScrollClick(page.productsButton);
+        ReusableMethods.waitFor(2);
     }
 
     @Then("Verify user is navigated to ALL PRODUCTS page successfully")
@@ -25,7 +30,7 @@ public class T08_VerifyAllProductsAndProductDetail {
 
     @Then("The products list is visible")
     public void theProductsListIsVisible() {
-
+        ReusableMethods.waitFor(2);
         int count = 1;
         System.out.println("========== ALL PRODUCT LIST ===========");
         for (WebElement w : page.allProductsList) {

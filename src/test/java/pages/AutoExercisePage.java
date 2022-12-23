@@ -100,7 +100,7 @@ public class AutoExercisePage {
     public WebElement testCasesButton;
     @FindBy(xpath = "//h2[@class='title text-center']")
     public WebElement testCasesPage;
-    @FindBy(xpath = "//a[@href='/products']")
+    @FindBy(xpath = "//a[@href='/products']/i")
     public WebElement productsButton;
     @FindBy(css = ".features_items>h2")
     public WebElement allProductsPage;
