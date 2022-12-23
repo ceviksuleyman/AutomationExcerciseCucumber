@@ -19,7 +19,7 @@ public class T08_VerifyAllProductsAndProductDetail {
         Driver.getDriver().navigate().refresh();
         ReusableMethods.waitFor(2);
         ReusableMethods.jsScrollClick(page.productsButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
     }
 
     @Then("Verify user is navigated to ALL PRODUCTS page successfully")

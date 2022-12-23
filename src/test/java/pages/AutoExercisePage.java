@@ -122,4 +122,12 @@ public class AutoExercisePage {
     public WebElement productCondition;
     @FindBy(xpath = "(//*[@class='product-information']//p)[4]")
     public WebElement productBrand;
+    @FindBy(css = "input#search_product")
+    public WebElement searchProductBox;
+    @FindBy(xpath = "//h2[.='Searched Products']")
+    public WebElement searchedProductsTitle;
+    @FindBy(xpath = "//*[@class='col-sm-4']/div/div/div/p")
+    public List<WebElement> allTheProductsRelated;
+    @FindBy(xpath = "//*[@class='product-image-wrapper']")
+    public WebElement allTheProductsRelatedScreenShot;
 }
