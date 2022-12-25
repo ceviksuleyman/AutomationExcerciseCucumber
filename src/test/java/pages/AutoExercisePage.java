@@ -174,4 +174,23 @@ public class AutoExercisePage {
     public WebElement proceedToCheckoutLink;
     @FindBy(xpath = "//a[.='Register / Login']")
     public WebElement registerLoginButton;
+    @FindBy(css = "#address_delivery>.address_firstname.address_lastname")
+    public WebElement deliveryAddressFirstnameLastname;
+    @FindBy(css = "#address_delivery>.address_country_name")
+    public WebElement deliveryAddressCountry;
+    @FindBy(css = "#address_delivery>.address_phone")
+    public WebElement deliveryAddressPhone;
+    @FindBy(css = ".checkout-information")
+    public WebElement addressDetailsControl;
+    @FindBy(css = ".form-control")
+    public WebElement descriptionCommentBox;
+    @FindBy(css = "input[name=name_on_card]")
+    public WebElement cardName;
+    @FindBy(css = "#submit")
+    public WebElement payAndConfirmOrderButton;
+    @FindBy(xpath = "//*[.='Congratulations! Your order has been confirmed!']")
+    public WebElement yourOrderHasBeenPlacedSuccessfully; //*[contains(text(), 'Your order has been placed successfully!')]
+    @FindBy(xpath = "//a[.='Place Order']")
+    public WebElement placeOrderButton;
+
 }

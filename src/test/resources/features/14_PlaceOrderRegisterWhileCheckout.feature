@@ -15,12 +15,12 @@ Feature: Place Order: Register while Checkout
     And  Click Cart button
     And  Click Proceed To Checkout button
     Then Verify Address Details and Review Your Order
-    #15. Enter description in comment text area and click 'Place Order'
-    #16. Enter payment details: Name on Card, Card Number, CVC, Expiration date
-    #17. Click 'Pay and Confirm Order' button
-    #18. Verify success message 'Your order has been placed successfully!'
-    #19. Click 'Delete Account' button
-    #20. Verify 'ACCOUNT DELETED!' and click 'Continue' button
+    Then Enter description in comment text area and click Place Order
+    And  Enter payment details: Name on Card, Card Number, CVC, Expiration date
+    Then Click Pay and Confirm Order button
+    Then Verify success message Your order has been placed successfully!
+    And Click Delete Account button
+    And Verify ACCOUNT DELETED! and click Continue button
 
 
   #2. 'http://automationexercise.com' URL'sine gidin

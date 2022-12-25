@@ -149,7 +149,7 @@ public class T01_RegisterUser {
     public void clickDeleteAccountButton() {
 
         jsScrollClick(page.deleteAccountButton);
-        waitFor(3);
+        waitFor(2);
     }
 
     @And("Verify that ACCOUNT DELETED! is visible and click Continue button")

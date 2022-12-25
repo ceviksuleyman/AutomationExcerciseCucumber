@@ -1,11 +1,17 @@
 package stepDefinitions;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.opentelemetry.semconv.trace.attributes.SemanticAttributes;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.devtools.v85.network.model.DataReceived;
 import pages.AutoExercisePage;
 import utilities.Driver;
+
+import java.io.IOException;
+import java.security.Key;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -65,8 +71,69 @@ public class T14_PlaceOrderRegisterCheckout {
     }
 
     @Then("Verify Address Details and Review Your Order")
-    public void verifyAddressDetailsAndReviewYourOrder() {
+    public void verifyAddressDetailsAndReviewYourOrder() throws IOException {
 
-        System.out.println(Hooks.expectedAddressDetails);
+        String expectedName = Hooks.firstname + " " + Hooks.lastname;
+        String expectedCountry = Hooks.country;
+        String expectedPhoneNumber = Hooks.phoneNumber;
+        //System.out.println("expectedName = " + expectedName);
+
+        assertTrue(page.deliveryAddressFirstnameLastname.getText().contains(expectedName));
+        assertEquals(expectedCountry, page.deliveryAddressCountry.getText());
+        assertEquals(expectedPhoneNumber, page.deliveryAddressPhone.getText());
+        getScreenshotWebElement("AddressDetails", page.addressDetailsControl);
+    }
+
+    @Then("Enter description in comment text area and click Place Order")
+    public void enterDescriptionInCommentTextAreaAndClickPlaceOrder() {
+
+        jsScroll(page.descriptionCommentBox);
+        getActions()
+                .click(page.descriptionCommentBox)
+                .sendKeys(Faker.instance().toString())
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.ENTER)
+                .perform();
+
+        Driver.getDriver().navigate().refresh();
+        jsScrollClick(page.placeOrderButton);
+    }
+
+    @And("Enter payment details: Name on Card, Card Number, CVC, Expiration date")
+    public void enterPaymentDetailsNameOnCardCardNumberCVCExpirationDate() {
+
+        getActions()
+                .click(page.cardName)
+                .sendKeys(Hooks.firstname + " " + Hooks.lastname)
+                .sendKeys(Keys.TAB)
+                .sendKeys(Faker.instance().number().digits(16))
+                .sendKeys(Keys.TAB)
+                .sendKeys(Faker.instance().number().digits(3))
+                .sendKeys(Keys.TAB)
+                .sendKeys(dateMonth())
+                .sendKeys(Keys.TAB)
+                .sendKeys(dateYear())
+                .perform();
+    }
+
+    @Then("Click Pay and Confirm Order button")
+    public void clickPayAndConfirmOrderButton() {
+
+        jsScrollClick(page.payAndConfirmOrderButton);
+    }
+
+    @Then("Verify success message Your order has been placed successfully!")
+    public void verifySuccessMessageYourOrderHasBeenPlacedSuccessfully() {
+
+        visibilityOfWait(page.yourOrderHasBeenPlacedSuccessfully);
+        assertTrue(page.yourOrderHasBeenPlacedSuccessfully.isDisplayed());
+    }
+
+    @And("Verify ACCOUNT DELETED! and click Continue button")
+    public void verifyACCOUNTDELETEDAndClickContinueButton() {
+
+        visibilityOfWait(page.accountDeletedMessage);
+        assertTrue(page.accountDeletedMessage.isDisplayed());
+        jsScrollClick(page.continueButton);
     }
 }
