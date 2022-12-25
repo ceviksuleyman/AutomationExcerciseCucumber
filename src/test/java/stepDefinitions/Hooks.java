@@ -13,6 +13,10 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static utilities.ReusableMethods.*;
 import static utilities.ReusableMethods.getActions;
 
@@ -21,6 +25,7 @@ public class Hooks {
     AutoExercisePage page = new AutoExercisePage();
     static String email;
     static String password;
+    static List<String> expectedAddressDetails;
 
     @After
     public void tearDown(Scenario scenario) {
@@ -80,5 +85,51 @@ public class Hooks {
         jsScrollClick(page.createAccountButton);
 
         Driver.quitDriver();
+    }
+
+    public void register() {
+
+        String gender = "";
+        String name = Faker.instance().name().name();
+        String company = Faker.instance().company().name();
+        String phoneNumber = Faker.instance().phoneNumber().cellPhone();
+
+        page.nameBoxSignup.sendKeys(name);
+        page.emailBoxSignup.sendKeys(Faker.instance().internet().emailAddress());
+        page.signupButton.click();
+        page.genderList.get(0).click();
+        gender = page.genderList.get(0).getText();
+        page.passwordBoxNewSignup.sendKeys(Faker.instance().internet().password());
+
+        selectDropDown(page.dayDDM);
+        selectDropDown(page.monthDDM);
+        selectDropDown(page.yearDDM);
+        jsScrollClick(page.newsletter);
+        jsScrollClick(page.partners);
+
+        jsScroll(page.firstnameBoxNewSignup);
+        waitFor(1);
+        getActions()
+                .click(page.firstnameBoxNewSignup)
+                .sendKeys(Faker.instance().name().firstName()).sendKeys(Keys.TAB)
+                .sendKeys(Faker.instance().name().lastName()).sendKeys(Keys.TAB)
+                .sendKeys(company).sendKeys(Keys.TAB)
+                .sendKeys(Faker.instance().address().streetAddress()).sendKeys(Keys.TAB)
+                .sendKeys(Faker.instance().address().fullAddress()).sendKeys(Keys.TAB).perform();
+
+        selectDdmIndex(page.country);
+        jsScroll(page.country);
+        waitFor(1);
+
+        getActions()
+                .click(page.state)
+                .sendKeys(Faker.instance().address().state()).sendKeys(Keys.TAB)
+                .sendKeys(Faker.instance().address().city()).sendKeys(Keys.TAB)
+                .sendKeys(Faker.instance().address().zipCode()).sendKeys(Keys.TAB)
+                .sendKeys(phoneNumber)
+                .perform();
+        jsScrollClick(page.createAccountButton);
+
+        expectedAddressDetails = new ArrayList<>(Arrays.asList(gender + name, company, phoneNumber));
     }
 }

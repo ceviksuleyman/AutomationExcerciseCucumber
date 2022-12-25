@@ -140,6 +140,8 @@ public class AutoExercisePage {
     public WebElement cartButton;
     @FindBy(xpath = "//div[@class='overlay-content']/a[@data-product-id='1']")
     public WebElement addToCartLink;
+    @FindBy(xpath = "//div[@class='features_items']//*[@class='productinfo text-center']/a/i")
+    public List<WebElement> addToCartLinkList;
     @FindBy(xpath = "//*[.='Continue Shopping']")
     public WebElement continueShoppingButton;
     @FindBy(xpath = "//a[.='View Cart']")
@@ -168,4 +170,8 @@ public class AutoExercisePage {
     public WebElement addToCartButton;
     @FindBy(xpath = "//tr[1]/td[4]/button")
     public WebElement quantityInCart;
+    @FindBy(linkText = "Proceed To Checkout")
+    public WebElement proceedToCheckoutLink;
+    @FindBy(xpath = "//a[.='Register / Login']")
+    public WebElement registerLoginButton;
 }

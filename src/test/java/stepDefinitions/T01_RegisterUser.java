@@ -29,6 +29,7 @@ public class T01_RegisterUser {
     public void verifyThatHomePageIsVisibleSuccessfully() {
 
         assertTrue(page.homePage.isDisplayed());
+        waitFor(2);
     }
 
     @Then("Click on Signup Login button")
