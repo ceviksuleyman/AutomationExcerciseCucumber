@@ -3,15 +3,11 @@ package stepDefinitions;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import io.opentelemetry.semconv.trace.attributes.SemanticAttributes;
-import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.devtools.v85.network.model.DataReceived;
 import pages.AutoExercisePage;
 import utilities.Driver;
 
 import java.io.IOException;
-import java.security.Key;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -91,12 +87,14 @@ public class T14_PlaceOrderRegisterCheckout {
         getActions()
                 .click(page.descriptionCommentBox)
                 .sendKeys(Faker.instance().toString())
-                .sendKeys(Keys.TAB)
-                .sendKeys(Keys.ENTER)
                 .perform();
-
-        Driver.getDriver().navigate().refresh();
         jsScrollClick(page.placeOrderButton);
+
+        Driver.getDriver().navigate().back();
+        waitFor(1);
+        jsScrollClick(page.placeOrderButton);
+        waitFor(1);
+
     }
 
     @And("Enter payment details: Name on Card, Card Number, CVC, Expiration date")
