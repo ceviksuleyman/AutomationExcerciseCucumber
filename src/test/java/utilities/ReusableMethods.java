@@ -1,6 +1,7 @@
 package utilities;
 
 import com.github.javafaker.Faker;
+import io.cucumber.core.backend.Located;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -213,19 +214,19 @@ public class ReusableMethods {
 
     public static void toBeClickableWait(WebElement webElement) {
 
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(25));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
     public static void visibilityOfWait(WebElement webElement) {
 
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(25));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
     public static void visibilityOfElementLocatedWait(By located) {
 
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(25));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(located));
     }
 
@@ -368,5 +369,17 @@ public class ReusableMethods {
         int index = random().nextInt(list.size());
 
         select(element).selectByIndex(index);
+    }
+
+    public static void addToCart(int product) {
+
+        By locator = By.xpath("//div[@class='overlay-content']/a[@data-product-id='" + (product + 1) + "']");
+        Driver.getDriver().findElement(locator).click();
+    }
+
+    public static WebElement productsInCart(int product) {
+
+        By locator = By.cssSelector("#product-" + product + "");
+        return getDriver().findElement(locator);
     }
 }

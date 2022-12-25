@@ -3,7 +3,6 @@ package stepDefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import pages.AutoExercisePage;
 import utilities.Driver;
 
@@ -20,9 +19,9 @@ public class T09_SearchProduct {
     public void enterProductNameInSearchInputAndClickSearchButton() {
 
         int indexProduct = random().nextInt(page.allProductsList.size());
-        getActions().click(page.searchProductBox)
+        getActions()
+                .click(page.searchProductBox)
                 .sendKeys(page.allProductsList.get(indexProduct).getText())
-                //.sendKeys("Tshirt")
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.ENTER)
                 .perform();
@@ -31,6 +30,7 @@ public class T09_SearchProduct {
     @And("Verify SEARCHED PRODUCTS is visible")
     public void verifySEARCHEDPRODUCTSIsVisible() {
 
+        visibilityOfWait(page.searchedProductsTitle);
         assertTrue(page.searchedProductsTitle.isDisplayed());
     }
 

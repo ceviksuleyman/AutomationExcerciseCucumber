@@ -100,7 +100,7 @@ public class AutoExercisePage {
     public WebElement testCasesButton;
     @FindBy(xpath = "//h2[@class='title text-center']")
     public WebElement testCasesPage;
-    @FindBy(xpath = "//a[@href='/products']/i")
+    @FindBy(xpath = "//a[@href='/products']")
     public WebElement productsButton;
     @FindBy(css = ".features_items>h2")
     public WebElement allProductsPage;
@@ -130,4 +130,42 @@ public class AutoExercisePage {
     public List<WebElement> allTheProductsRelated;
     @FindBy(xpath = "//*[@class='product-image-wrapper']")
     public WebElement allTheProductsRelatedScreenShot;
+    @FindBy(css = "input#susbscribe_email")
+    public WebElement subscribeBoxEmail;
+    @FindBy(css = "div.single-widget>h2")
+    public WebElement subscribeTitle;
+    @FindBy(xpath = "//*[.='You have been successfully subscribed!']")
+    public WebElement youHaveBeenSuccessfullySubscribed;
+    @FindBy(xpath = "//a[@href='/view_cart']")
+    public WebElement cartButton;
+    @FindBy(xpath = "//div[@class='overlay-content']/a[@data-product-id='1']")
+    public WebElement addToCartLink;
+    @FindBy(xpath = "//*[.='Continue Shopping']")
+    public WebElement continueShoppingButton;
+    @FindBy(xpath = "//a[.='View Cart']")
+    public WebElement viewCartButton;
+    @FindBy(css = "#cart_info_table")
+    public WebElement cartDetails;
+    @FindBy(css = "#product-2")
+    public WebElement productsInCart;
+    @FindBy(xpath = "//*[@class='col-sm-4']/div/div/div/h2")
+    public List<WebElement> allProductsPrices;
+    @FindBy(xpath = "//tr[1]/td[3]/p")
+    public WebElement firstProductPrice;
+    @FindBy(xpath = "//tr[1]/td[4]/button")
+    public WebElement firstProductQuantity;
+    @FindBy(xpath = "//tr[1]/td[5]/p")
+    public WebElement firstProductTotalPrice;
+    @FindBy(xpath = "//tr[2]/td[3]/p")
+    public WebElement secondProductPrice;
+    @FindBy(xpath = "//tr[2]/td[4]/button")
+    public WebElement secondProductQuantity;
+    @FindBy(xpath = "//tr[2]/td[5]/p")
+    public WebElement secondProductTotalPrice;
+    @FindBy(css = "#quantity")
+    public WebElement quantity;
+    @FindBy(css = "button.btn.btn-default.cart")
+    public WebElement addToCartButton;
+    @FindBy(xpath = "//tr[1]/td[4]/button")
+    public WebElement quantityInCart;
 }
