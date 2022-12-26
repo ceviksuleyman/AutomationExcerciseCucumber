@@ -140,7 +140,7 @@ public class AutoExercisePage {
     public WebElement cartButton;
     @FindBy(xpath = "//div[@class='overlay-content']/a[@data-product-id='1']")
     public WebElement addToCartLink;
-    @FindBy(xpath = "//div[@class='features_items']//*[@class='productinfo text-center']/a/i")
+    @FindBy(xpath = "//div[@class='single-products']//*[@class='productinfo text-center']/a")
     public List<WebElement> addToCartLinkList;
     @FindBy(xpath = "//*[.='Continue Shopping']")
     public WebElement continueShoppingButton;

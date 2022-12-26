@@ -9,8 +9,7 @@ import pages.AutoExercisePage;
 import java.util.ArrayList;
 import java.util.List;
 
-import static utilities.ReusableMethods.jsScrollClick;
-import static utilities.ReusableMethods.visibilityOfWait;
+import static utilities.ReusableMethods.*;
 
 public class T20_SearchProductsVerifyCartAfterLogin {
 
@@ -25,8 +24,8 @@ public class T20_SearchProductsVerifyCartAfterLogin {
     @And("Click Cart button and verify that products are visible in cart")
     public void clickCartButtonAndVerifyThatProductsAreVisibleInCart() {
 
-        visibilityOfWait(page.viewCartButton);
         jsScrollClick(page.viewCartButton);
+
         Assert.assertTrue(page.cartDetails.isDisplayed());
     }
 
@@ -48,11 +47,16 @@ public class T20_SearchProductsVerifyCartAfterLogin {
 
         List<String> productNames = new ArrayList<>();
         for (WebElement w : page.productNamesInCartList) {
+
             productNames.add(w.getText());
-            //System.out.println(w.getText());
         }
-        //System.out.println(productNames);
-        //System.out.println(T09_SearchProduct.productName);
         Assert.assertTrue(productNames.contains(T09_SearchProduct.productName));
+
+
+        while (page.cartDeleteXList.size() != 0) {
+
+            jsScrollClick(page.cartDeleteXList.get(0));
+            waitFor(1);
+        }
     }
 }

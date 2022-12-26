@@ -41,8 +41,6 @@ public class T09_SearchProduct {
         Driver.zoomInOut(90);
         for (int i = 0; i < page.allTheProductsRelated.size(); i++) {
 
-
-            //System.out.println(page.allTheProductsRelated.get(i).getText());
             productName = page.allTheProductsRelated.get(i).getText();
             jsScroll(page.allTheProductsRelated.get(i));
             getActions().sendKeys(Keys.PAGE_DOWN).perform();
