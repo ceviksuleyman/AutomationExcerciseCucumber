@@ -14,6 +14,7 @@ import static utilities.ReusableMethods.*;
 public class T09_SearchProduct {
 
     AutoExercisePage page = new AutoExercisePage();
+    static String productName;
 
     @Then("Enter product name in search input and click search button")
     public void enterProductNameInSearchInputAndClickSearchButton() {
@@ -37,10 +38,12 @@ public class T09_SearchProduct {
     @And("Verify all the products related to search are visible")
     public void verifyAllTheProductsRelatedToSearchAreVisible() throws IOException {
 
-        Driver.zoomInOut(80);
+        Driver.zoomInOut(90);
         for (int i = 0; i < page.allTheProductsRelated.size(); i++) {
 
-            System.out.println(page.allTheProductsRelated.get(i).getText());
+
+            //System.out.println(page.allTheProductsRelated.get(i).getText());
+            productName = page.allTheProductsRelated.get(i).getText();
             jsScroll(page.allTheProductsRelated.get(i));
             getActions().sendKeys(Keys.PAGE_DOWN).perform();
             assertTrue(page.allTheProductsRelated.get(i).isDisplayed());

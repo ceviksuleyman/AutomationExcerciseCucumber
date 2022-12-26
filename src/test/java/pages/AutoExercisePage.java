@@ -192,5 +192,33 @@ public class AutoExercisePage {
     public WebElement yourOrderHasBeenPlacedSuccessfully; //*[contains(text(), 'Your order has been placed successfully!')]
     @FindBy(xpath = "//a[.='Place Order']")
     public WebElement placeOrderButton;
+    @FindBy(xpath = "//*[@class='cart_delete']/a")
+    public List<WebElement> cartDeleteXList;
+    @FindBy(xpath = "//*[.='Cart is empty!']")
+    public WebElement cartIsEmptyText;
+    @FindBy(xpath = "//*[.='Category']")
+    public WebElement categoryTitle;
+    @FindBy(xpath = "//a[@href='#Men']")
+    public WebElement menCategoryLink;
+    @FindBy(xpath = "//a[@href='#Women']")
+    public WebElement womenCategoryLink;
+    @FindBy(xpath = "//a[@href='#Kids']")
+    public WebElement kidsCategoryLink;
+    @FindBy(xpath = "//*[@id='Women']/*[@class='panel-body']/ul/li/a")
+    public List<WebElement> womenCategoryList;
+    @FindBy(xpath = "//*[@id='Men']/*[@class='panel-body']/ul/li/a")
+    public List<WebElement> menCategoryList;
+    @FindBy(xpath = "//*[@class='title text-center']")
+    public WebElement womenCategoryPage;
+    @FindBy(xpath = "//*[@class='title text-center']")
+    public WebElement menCategoryPage;
+    @FindBy(xpath = "//*[.='Brands']")
+    public WebElement brandsTitle;
+    @FindBy(css = ".brands-name>ul>li>a>span")
+    public List<WebElement> brandsLinkList;
+    @FindBy(xpath = "//*[@class='title text-center']")
+    public WebElement brandProductsPage;
+    @FindBy(xpath = "//tbody/tr/td[2]/h4/a")
+    public List<WebElement> productNamesInCartList;
 
 }

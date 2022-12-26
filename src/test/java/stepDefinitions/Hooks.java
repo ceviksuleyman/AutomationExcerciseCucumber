@@ -142,7 +142,7 @@ public class Hooks {
         jsScrollClick(page.createAccountButton);
     }
 
-    public void login(){
+    public void login() {
 
         page.emailBoxLogin.sendKeys(ConfigReader.getProperty("email"));
         page.passwordBoxLogin.sendKeys(ConfigReader.getProperty("password"));

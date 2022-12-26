@@ -2,11 +2,13 @@ package stepDefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import pages.AutoExercisePage;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+import static org.junit.Assert.*;
+import static utilities.ReusableMethods.*;
 
 public class T08_VerifyAllProductsAndProductDetail {
 
@@ -15,27 +17,28 @@ public class T08_VerifyAllProductsAndProductDetail {
     @Then("Click on Products button")
     public void clickOnProductsButton() {
 
-        ReusableMethods.jsScrollClick(page.productsButton);
+        jsScrollClick(page.productsButton);
         Driver.getDriver().navigate().refresh();
-        ReusableMethods.waitFor(2);
-        ReusableMethods.jsScrollClick(page.productsButton);
-        ReusableMethods.waitFor(1);
+        visibilityOfWait(page.productsButton);
+        jsScrollClick(page.productsButton);
+        waitFor(1);
     }
 
     @Then("Verify user is navigated to ALL PRODUCTS page successfully")
     public void verifyUserIsNavigatedToALLPRODUCTSPageSuccessfully() {
 
-        Assert.assertTrue(page.allProductsPage.isDisplayed());
+        assertTrue(page.allProductsPage.isDisplayed());
     }
 
     @Then("The products list is visible")
     public void theProductsListIsVisible() {
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
         int count = 1;
         System.out.println("========== ALL PRODUCT LIST ===========");
         for (WebElement w : page.allProductsList) {
 
             System.out.println(count + " -> " + w.getText());
+            assertTrue(w.isDisplayed());
             count++;
         }
     }
@@ -43,19 +46,19 @@ public class T08_VerifyAllProductsAndProductDetail {
     @Then("Click on View Product of first product")
     public void clickOnViewProductOfFirstProduct() {
 
-        ReusableMethods.jsScrollClick(page.viewProductButtonList.get(0));
+        jsScrollClick(page.viewProductButtonList.get(0));
     }
 
     @Then("User is landed to product detail page")
     public void userIsLandedToProductDetailPage() {
 
-        Assert.assertTrue(page.productDetail.isDisplayed());
+        assertTrue(page.productDetail.isDisplayed());
     }
 
     @And("Verify that detail detail is visible: product name, category, price, availability, condition, brand")
     public void verifyThatDetailDetailIsVisibleProductNameCategoryPriceAvailabilityConditionBrand() {
 
-        Assert.assertTrue(page.productName.isDisplayed()
+        assertTrue(page.productName.isDisplayed()
                 && page.productCategory.isDisplayed()
                 && page.productPrice.isDisplayed()
                 && page.productAvailability.isDisplayed()

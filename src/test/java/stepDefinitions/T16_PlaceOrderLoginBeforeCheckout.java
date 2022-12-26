@@ -95,6 +95,7 @@ public class T16_PlaceOrderLoginBeforeCheckout {
         assertTrue(page.deliveryAddressFirstnameLastname.getText().contains(expectedName));
         assertEquals(expectedCountry, page.deliveryAddressCountry.getText());
         assertEquals(expectedPhoneNumber, page.deliveryAddressPhone.getText());
+        assertTrue(page.addressDetailsControl.isDisplayed());
         getScreenshotWebElement("AddressDetails", page.addressDetailsControl);
     }
 }
