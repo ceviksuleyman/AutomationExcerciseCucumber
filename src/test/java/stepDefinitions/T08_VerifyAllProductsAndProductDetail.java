@@ -2,10 +2,16 @@ package stepDefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.apache.poi.ss.usermodel.*;
 import org.openqa.selenium.WebElement;
 import pages.AutoExercisePage;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import static org.junit.Assert.*;
 import static utilities.ReusableMethods.*;
@@ -31,14 +37,17 @@ public class T08_VerifyAllProductsAndProductDetail {
     }
 
     @Then("The products list is visible")
-    public void theProductsListIsVisible() {
+    public void theProductsListIsVisible() throws IOException {
+
+
         ReusableMethods.waitFor(1);
         int count = 1;
-        System.out.println("========== ALL PRODUCT LIST ===========");
-        for (WebElement w : page.allProductsList) {
 
-            System.out.println(count + " -> " + w.getText());
-            assertTrue(w.isDisplayed());
+        System.out.println("========== ALL PRODUCT LIST ===========");
+        for (int i = 0; i < page.allProductsList.size(); i++) {
+
+            System.out.println(count + " -> " + page.allProductsList.get(i).getText());
+            assertTrue(page.allProductsList.get(i).isDisplayed());
             count++;
         }
     }
