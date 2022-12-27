@@ -106,7 +106,7 @@ public class AutoExercisePage {
     public WebElement allProductsPage;
     @FindBy(css = ".features_items>.col-sm-4>div>div>div>p")
     public List<WebElement> allProductsList;
-    @FindBy(css = ".nav.nav-pills.nav-justified>li>a")
+    @FindBy(css = ".nav.nav-pills.nav-justified>li>a>i")
     public List<WebElement> viewProductButtonList;
     @FindBy(css = ".product-information")
     public WebElement productDetail;
@@ -220,5 +220,16 @@ public class AutoExercisePage {
     public WebElement brandProductsPage;
     @FindBy(xpath = "//tbody/tr/td[2]/h4/a")
     public List<WebElement> productNamesInCartList;
-
+    @FindBy(xpath = "//a[.='Write Your Review']")
+    public WebElement writeYourReviewTitle;
+    @FindBy(css = "#review-form>span>#name")
+    public WebElement addReviewNameBox;
+    @FindBy(css = "#review-form>span>#email")
+    public WebElement addReviewEmailBox;
+    @FindBy(css = "#review-form>#review")
+    public WebElement addReviewBox;
+    @FindBy(css = "button#button-review")
+    public WebElement submitButtonAddReview;
+    @FindBy(xpath = "//*[.='Thank you for your review.']")
+    public WebElement thankYouReviewText;
 }
