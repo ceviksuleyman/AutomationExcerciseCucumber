@@ -1,6 +1,7 @@
-@Test16
+@all
 Feature: Place Order: Login before Checkout
 
+  @Test16
   Scenario: Place Order: Login before Checkout
     Given Navigate to url "autoUrl"
     Then Verify that home page is visible successfully

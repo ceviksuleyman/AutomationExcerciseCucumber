@@ -1,6 +1,7 @@
-@Test02
+@all
 Feature: Login User with correct email and password
 
+  @Test02
   Scenario: Login User with correct email and password
     Given Navigate to url "autoUrl"
     Then Verify that home page is visible successfully

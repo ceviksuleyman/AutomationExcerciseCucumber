@@ -1,6 +1,7 @@
-@Test07
+@all
 Feature: Verify Test Cases Page
 
+  @Test07
   Scenario: Verify Test Cases Page
     Given Navigate to url "autoUrl"
     Then Verify that home page is visible successfully

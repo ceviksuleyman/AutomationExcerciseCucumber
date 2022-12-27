@@ -1,6 +1,7 @@
-@Test11
+@all
 Feature: Verify Subscription in Cart page
 
+  @Test11
   Scenario: Verify Subscription in Cart page
     Given Navigate to url "autoUrl"
     Then Verify that home page is visible successfully

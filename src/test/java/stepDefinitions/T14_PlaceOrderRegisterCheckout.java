@@ -94,7 +94,6 @@ public class T14_PlaceOrderRegisterCheckout {
         waitFor(1);
         jsScrollClick(page.placeOrderButton);
         waitFor(1);
-
     }
 
     @And("Enter payment details: Name on Card, Card Number, CVC, Expiration date")

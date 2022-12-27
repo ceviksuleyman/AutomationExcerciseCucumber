@@ -1,6 +1,7 @@
-@Test15
+@all
 Feature: Place Order: Register before Checkout
 
+  @Test15
   Scenario: Place Order: Register before Checkout
     Given Navigate to url "autoUrl"
     Then Verify that home page is visible successfully

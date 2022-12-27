@@ -31,6 +31,7 @@ public class Hooks {
     static String city;
     static String zipcode;
     static String country;
+    static String gender;
 
     @After
     public void tearDown(Scenario scenario) {
@@ -43,7 +44,7 @@ public class Hooks {
 
             scenario.attach(screenshot, "image/png", "screenshots");
         }
-        //Driver.quitDriver();
+        Driver.quitDriver();
     }
 
 
@@ -109,6 +110,7 @@ public class Hooks {
         page.emailBoxSignup.sendKeys(Faker.instance().internet().emailAddress());
         page.signupButton.click();
         page.genderList.get(0).click();
+        gender = page.genderList.get(0).getText();
         page.passwordBoxNewSignup.sendKeys(Faker.instance().internet().password());
 
         selectDropDown(page.dayDDM);

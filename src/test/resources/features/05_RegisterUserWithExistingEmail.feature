@@ -1,6 +1,7 @@
-@Test05
+@all
 Feature: Register User with existing email
 
+  @Test05
   Scenario: Register User with existing email
     Given Navigate to url "autoUrl"
     Then Verify that home page is visible successfully

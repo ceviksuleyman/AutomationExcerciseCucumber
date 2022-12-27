@@ -1,6 +1,7 @@
-@Test10
+@all
 Feature: Verify Subscription in home page
 
+  @Test10
   Scenario: Verify Subscription in home page
     Given Navigate to url "autoUrl"
     Then Verify that home page is visible successfully

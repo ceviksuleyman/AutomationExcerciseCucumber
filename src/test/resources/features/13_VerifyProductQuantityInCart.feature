@@ -1,6 +1,7 @@
-@Test13
+@all
 Feature: Verify Product quantity in Cart
 
+  @Test13
   Scenario: Verify Product quantity in Cart
     Given Navigate to url "autoUrl"
     Then Verify that home page is visible successfully

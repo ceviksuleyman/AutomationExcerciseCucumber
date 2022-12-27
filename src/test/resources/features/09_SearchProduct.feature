@@ -1,6 +1,7 @@
-@Test09
+@all
 Feature: Search Product
 
+  @Test09
   Scenario: Search Product
     Given Navigate to url "autoUrl"
     Then Verify that home page is visible successfully

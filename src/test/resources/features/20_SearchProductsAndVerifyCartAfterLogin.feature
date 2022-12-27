@@ -1,6 +1,7 @@
-@Test20
+@all
 Feature: Search Products and Verify Cart After Login
 
+  @Test20
   Scenario: Search Products and Verify Cart After Login
     Given Navigate to url "autoUrl"
     When Click on Products button

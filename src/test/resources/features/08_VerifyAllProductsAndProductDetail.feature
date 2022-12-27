@@ -1,6 +1,7 @@
-@Test08
+@all
 Feature: Verify All Products and product detail page
 
+  @Test08
   Scenario: Verify All Products and product detail page
     Given Navigate to url "autoUrl"
     Then Verify that home page is visible successfully

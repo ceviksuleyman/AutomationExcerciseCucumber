@@ -100,7 +100,8 @@ public class T01_RegisterUser {
     @Then("Fill details First name, Last name, Company, Address, Address{int}, Country, State, City, Zipcode, Mobile Number")
     public void fillDetailsFirstNameLastNameCompanyAddressAddressCountryStateCityZipcodeMobileNumber(int arg0) {
 
-        getActions()
+        jsScroll(page.firstnameBoxNewSignup);
+        getActions().click(page.firstnameBoxNewSignup)
                 .sendKeys(Faker.instance().name().firstName()).sendKeys(Keys.TAB)
                 .sendKeys(Faker.instance().name().lastName()).sendKeys(Keys.TAB)
                 .sendKeys(Faker.instance().company().name()).sendKeys(Keys.TAB)
@@ -137,6 +138,10 @@ public class T01_RegisterUser {
     public void clickContinueButton() {
 
         jsScrollClick(page.continueButton);
+        Driver.getDriver().navigate().refresh();
+        visibilityOfWait(page.continueButton);
+        jsScrollClick(page.continueButton);
+
     }
 
     @Then("Verify that Logged in as username is visible")

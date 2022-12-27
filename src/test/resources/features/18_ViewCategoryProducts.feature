@@ -1,6 +1,7 @@
-@Test18
+@all
 Feature: View Category Products
 
+  @Test18
   Scenario: View Category Products
     Given Navigate to url "autoUrl"
     When Verify that categories are visible on left side bar

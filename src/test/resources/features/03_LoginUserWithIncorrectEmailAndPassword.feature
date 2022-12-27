@@ -1,6 +1,7 @@
-@Test03
+@all
 Feature: Login User with incorrect email and password
 
+  @Test03
   Scenario: Login User with incorrect email and password
     Given Navigate to url "autoUrl"
     Then Verify that home page is visible successfully

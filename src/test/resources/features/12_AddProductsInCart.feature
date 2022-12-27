@@ -1,6 +1,7 @@
-@Test12
+@all
 Feature: Add Products in Cart
 
+  @Test12
   Scenario: Add Products in Cart
     Given Navigate to url "autoUrl"
     Then Verify that home page is visible successfully

@@ -1,6 +1,7 @@
-@Test21
+@all
 Feature: Add review on product
 
+  @Test21
   Scenario: Add review on product
     Given Navigate to url "autoUrl"
     When Click on Products button

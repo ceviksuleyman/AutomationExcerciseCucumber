@@ -1,6 +1,7 @@
-@Test04
+@all
 Feature:Logout User
 
+  @Test04
   Scenario:Logout User
     Given Navigate to url "autoUrl"
     Then Verify that home page is visible successfully

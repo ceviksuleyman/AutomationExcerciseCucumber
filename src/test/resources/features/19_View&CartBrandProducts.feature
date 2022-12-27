@@ -1,6 +1,7 @@
-@Test19
+@all
 Feature: View & Cart Brand Products
 
+  @Test19
   Scenario: View & Cart Brand Products
     Given Navigate to url "autoUrl"
     When Click on Products button

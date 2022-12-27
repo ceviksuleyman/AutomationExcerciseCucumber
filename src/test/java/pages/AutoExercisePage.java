@@ -26,7 +26,7 @@ public class AutoExercisePage {
     public WebElement emailBoxSignup;
     @FindBy(xpath = "//button[@data-qa='signup-button']")
     public WebElement signupButton;
-    @FindBy(css = ".radio-inline")
+    @FindBy(css = "form>div[class=clearfix]>div")
     public List<WebElement> genderList;
     @FindBy(xpath = "//h2[.='Enter Account Information']")
     public WebElement enterAccountInformationText;
@@ -232,4 +232,20 @@ public class AutoExercisePage {
     public WebElement submitButtonAddReview;
     @FindBy(xpath = "//*[.='Thank you for your review.']")
     public WebElement thankYouReviewText;
+    @FindBy(css = ".recommended_items>h2")
+    public WebElement recommendedItemsTitle;
+    @FindBy(css = "#recommended-item-carousel>.carousel-inner")
+    public WebElement recommendedItems;
+    @FindBy(css = ".carousel-inner>div>.col-sm-4>div>div>div>a")
+    public List<WebElement> recommendedProductsAddToCartButtonList;
+    @FindBy(css = "#address_delivery>li")
+    public List<WebElement> deliveryAddress;
+    @FindBy(css = "#address_invoice>li")
+    public List<WebElement> billingAddress;
+    @FindBy(linkText = "Download Invoice")
+    public WebElement downloadInvoice;
+    @FindBy(css = "#scrollUp")
+    public WebElement scrollUp;
+    @FindBy(xpath = "//h2[.='Full-Fledged practice website for Automation Engineers']")
+    public List<WebElement> automationEngineersTitleList;
 }

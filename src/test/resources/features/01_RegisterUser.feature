@@ -1,6 +1,7 @@
-@Test01
+@all
 Feature:Register User
 
+  @Test01
   Scenario:Register User
     Given Navigate to url "autoUrl"
     When Verify that home page is visible successfully
@@ -19,5 +20,3 @@ Feature:Register User
     Then Verify that Logged in as username is visible
     Then Click Delete Account button
     And  Verify that ACCOUNT DELETED! is visible and click Continue button
-    And  Wait 3 second
-    And  Quit Browser

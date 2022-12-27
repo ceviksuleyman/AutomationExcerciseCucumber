@@ -1,6 +1,7 @@
-@Test06
+@all
 Feature: Contact Us Form
 
+  @Test06
   Scenario: Contact Us Form
     Given Navigate to url "autoUrl"
     Then Verify that home page is visible successfully

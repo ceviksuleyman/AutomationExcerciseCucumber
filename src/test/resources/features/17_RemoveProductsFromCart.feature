@@ -1,6 +1,7 @@
-@Test17
+@all
 Feature: Remove Products From Cart
 
+  @Test17
   Scenario: Remove Products From Cart
     Given Navigate to url "autoUrl"
     Then Verify that home page is visible successfully
