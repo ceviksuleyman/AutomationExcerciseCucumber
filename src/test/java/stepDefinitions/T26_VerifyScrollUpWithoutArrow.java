@@ -4,7 +4,7 @@ import io.cucumber.java.en.Then;
 import pages.AutoExercisePage;
 import utilities.ReusableMethods;
 
-public class T25_VerifyScrollUpWithoutArrow {
+public class T26_VerifyScrollUpWithoutArrow {
 
     AutoExercisePage page = new AutoExercisePage();
 
