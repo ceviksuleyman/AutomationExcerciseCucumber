@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
                 "junit:target/xml-report/cucumber.xml"},
         features = {"src/test/resources/features"},
         glue = {"stepDefinitions"},
-        tags = "@Test24",
+        tags = "@Test22 or @Test23 or @Test24",
         dryRun = false
 )
 public class TestRunner2 {

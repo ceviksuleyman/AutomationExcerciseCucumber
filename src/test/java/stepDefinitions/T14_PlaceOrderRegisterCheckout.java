@@ -69,12 +69,12 @@ public class T14_PlaceOrderRegisterCheckout {
     @Then("Verify Address Details and Review Your Order")
     public void verifyAddressDetailsAndReviewYourOrder() throws IOException {
 
-        String expectedName = Hooks.firstname + " " + Hooks.lastname;
+        String expectedName = Hooks.gender + " " + Hooks.firstname + " " + Hooks.lastname;
         String expectedCountry = Hooks.country;
         String expectedPhoneNumber = Hooks.phoneNumber;
-        //System.out.println("expectedName = " + expectedName);
 
-        assertTrue(page.deliveryAddressFirstnameLastname.getText().contains(expectedName));
+
+        assertEquals(expectedName, page.deliveryAddressFirstnameLastname.getText());
         assertEquals(expectedCountry, page.deliveryAddressCountry.getText());
         assertEquals(expectedPhoneNumber, page.deliveryAddressPhone.getText());
         getScreenshotWebElement("AddressDetails", page.addressDetailsControl);
