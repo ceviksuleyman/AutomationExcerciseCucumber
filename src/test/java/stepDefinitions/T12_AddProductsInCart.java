@@ -7,7 +7,6 @@ import utilities.Driver;
 
 import java.io.IOException;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static utilities.ReusableMethods.*;
 
@@ -52,7 +51,7 @@ public class T12_AddProductsInCart {
                 .perform();
 
         waitFor(1);
-        addToCart(1);
+        addToCart(1);//
     }
 
     @And("Click View Cart button")

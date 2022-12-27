@@ -6,7 +6,6 @@ import io.cucumber.java.en.Then;
 
 import org.openqa.selenium.Keys;
 import pages.AutoExercisePage;
-import utilities.ConfigReader;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
