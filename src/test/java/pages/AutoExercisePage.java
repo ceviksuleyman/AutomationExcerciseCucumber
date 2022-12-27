@@ -227,7 +227,7 @@ public class AutoExercisePage {
     @FindBy(css = "#review-form>span>#email")
     public WebElement addReviewEmailBox;
     @FindBy(css = "#review-form>#review")
-    public WebElement addReviewBox;
+    public WebElement addReviewHere;
     @FindBy(css = "button#button-review")
     public WebElement submitButtonAddReview;
     @FindBy(xpath = "//*[.='Thank you for your review.']")

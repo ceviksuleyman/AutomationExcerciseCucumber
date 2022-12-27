@@ -159,26 +159,26 @@ public class ReusableMethods {
         }
     }//
 
-    public static Faker getFaker() { // getFaker method
+    public static Faker getFaker() {
 
         Faker faker;
         return faker = new Faker();
     }//
 
-    public static Actions getActions() { //getActions method
+    public static Actions getActions() {
 
         Actions actions;
         return actions = new Actions(getDriver());
     }//
 
-    public static Select select(WebElement ddm) { //select method
+    public static Select select(WebElement ddm) {
 
         Select select;
 
         return select = new Select(ddm);
     }//
 
-    public static void jsScrollClick(WebElement webElement) {  //kaydir ve tikla
+    public static void jsScrollClick(WebElement webElement) {
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         try {
             webElement.click();
@@ -397,5 +397,30 @@ public class ReusableMethods {
         LocalDateTime localDateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy");
         return year = localDateTime.format(formatter);
+    }
+
+    public static void pageDown(int pageDown) {
+
+        Actions actions = new Actions(Driver.getDriver());
+        switch (pageDown) {
+            case 1:
+                actions
+                        .sendKeys(Keys.PAGE_DOWN)
+                        .perform();
+                break;
+            case 2:
+                actions
+                        .sendKeys(Keys.PAGE_DOWN)
+                        .sendKeys(Keys.PAGE_DOWN)
+                        .perform();
+                break;
+            default:
+                actions
+                        .sendKeys(Keys.PAGE_DOWN)
+                        .sendKeys(Keys.PAGE_DOWN)
+                        .sendKeys(Keys.PAGE_DOWN)
+                        .perform();
+                break;
+        }
     }
 }

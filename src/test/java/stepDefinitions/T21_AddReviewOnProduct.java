@@ -4,9 +4,11 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import pages.AutoExercisePage;
 import utilities.ConfigReader;
-import utilities.ReusableMethods;
+
+import static utilities.ReusableMethods.*;
 
 public class T21_AddReviewOnProduct {
 
@@ -15,8 +17,8 @@ public class T21_AddReviewOnProduct {
     @Then("Click on View Product button")
     public void clickOnViewProductButton() {
 
-        int index = ReusableMethods.random().nextInt(page.viewProductButtonList.size());
-        ReusableMethods.jsScrollClick(page.viewProductButtonList.get(index));
+        int index = random().nextInt(page.viewProductButtonList.size());
+        jsScrollClick(page.viewProductButtonList.get(index));
     }
 
     @Then("Verify Write Your Review is visible")
@@ -30,19 +32,20 @@ public class T21_AddReviewOnProduct {
 
         page.addReviewNameBox.sendKeys(ConfigReader.getProperty("name"));
         page.addReviewEmailBox.sendKeys(ConfigReader.getProperty("email"));
-        page.addReviewBox.sendKeys(Faker.instance().toString());
+        page.addReviewHere.sendKeys(Faker.instance().toString());
     }
 
     @Then("Click Submit button review")
     public void clickSubmitButtonReview() {
 
-        ReusableMethods.jsScrollClick(page.submitButtonAddReview);
+        pageDown(1);
+        jsScrollClick(page.submitButtonAddReview);
     }
 
     @And("Verify success message Thank you for your review.")
     public void verifySuccessMessageThankYouForYourReview() {
 
-        ReusableMethods.visibilityOfWait(page.thankYouReviewText);
+        visibilityOfWait(page.thankYouReviewText);
         Assert.assertTrue(page.thankYouReviewText.isDisplayed());
     }
 
