@@ -2,11 +2,8 @@ package stepDefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 import pages.AutoExercisePage;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
 import java.io.IOException;
 
@@ -29,10 +26,10 @@ public class T12_AddProductsInCart {
     @Then("Hover over first product and click Add to cart")
     public void hoverOverFirstProductAndClickAddToCart() {
 
-        jsScroll(page.allProductsList.get(0));
+        jsScroll(page.allProductNameList.get(0));
 
         getActions()
-                .moveToElement(page.allProductsList.get(0))
+                .moveToElement(page.allProductNameList.get(0))
                 .perform();
 
         waitFor(1);
@@ -48,10 +45,10 @@ public class T12_AddProductsInCart {
     @Then("Hover over second product and click Add to cart")
     public void hoverOverSecondProductAndClickAddToCart() {
 
-        jsScroll(page.allProductsList.get(1));
+        jsScroll(page.allProductNameList.get(1));
 
         getActions()
-                .moveToElement(page.allProductsList.get(1))
+                .moveToElement(page.allProductNameList.get(1))
                 .perform();
 
         waitFor(1);
@@ -75,14 +72,12 @@ public class T12_AddProductsInCart {
     @And("Verify their prices, quantity and total price")
     public void verifyTheirPricesQuantityAndTotalPrice() {
 
-
-        System.out.println("urun 1 fiyat -> " + page.firstProductPrice.getText());
+        /*System.out.println("urun 1 fiyat -> " + page.firstProductPrice.getText());
         System.out.println("urun 1 miktar -> " + page.firstProductQuantity.getText());
         System.out.println("urun 1 toplam fiyat -> " + page.firstProductTotalPrice.getText());
         System.out.println("urun 2 fiyat -> " + page.secondProductPrice.getText());
         System.out.println("urun 2 miktar -> " + page.secondProductQuantity.getText());
-        System.out.println("urun 2 toplam fiyat -> " + page.secondProductTotalPrice.getText());
-
+        System.out.println("urun 2 toplam fiyat -> " + page.secondProductTotalPrice.getText());*/
 
         assertTrue(page.firstProductPrice.isDisplayed()
                 && page.secondProductPrice.isDisplayed()
@@ -90,6 +85,5 @@ public class T12_AddProductsInCart {
                 && page.secondProductQuantity.isDisplayed()
                 && page.firstProductTotalPrice.isDisplayed()
                 && page.secondProductTotalPrice.isDisplayed());
-
     }
 }

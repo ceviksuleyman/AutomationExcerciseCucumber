@@ -105,7 +105,7 @@ public class AutoExercisePage {
     @FindBy(css = ".features_items>h2")
     public WebElement allProductsPage;
     @FindBy(css = ".features_items>.col-sm-4>div>div>div>p")
-    public List<WebElement> allProductsList;
+    public List<WebElement> allProductNameList;
     @FindBy(css = ".nav.nav-pills.nav-justified>li>a>i")
     public List<WebElement> viewProductButtonList;
     @FindBy(css = ".product-information")

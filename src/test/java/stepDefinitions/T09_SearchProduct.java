@@ -19,10 +19,10 @@ public class T09_SearchProduct {
     @Then("Enter product name in search input and click search button")
     public void enterProductNameInSearchInputAndClickSearchButton() {
 
-        int indexProduct = random().nextInt(page.allProductsList.size());
+        int indexProduct = random().nextInt(page.allProductNameList.size());
         getActions()
                 .click(page.searchProductBox)
-                .sendKeys(page.allProductsList.get(indexProduct).getText())
+                .sendKeys(page.allProductNameList.get(indexProduct).getText())
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.ENTER)
                 .perform();

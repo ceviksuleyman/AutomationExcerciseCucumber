@@ -2,14 +2,13 @@ package stepDefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import org.apache.poi.ss.usermodel.*;
-import org.openqa.selenium.WebElement;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import pages.AutoExercisePage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -43,11 +42,11 @@ public class T08_VerifyAllProductsAndProductDetail {
         ReusableMethods.waitFor(1);
         int count = 1;
 
-        System.out.println("========== ALL PRODUCT LIST ===========");
-        for (int i = 0; i < page.allProductsList.size(); i++) {
+        System.out.println("========== ALL PRODUCT NAMES ===========");
+        for (int i = 0; i < page.allProductNameList.size(); i++) {
 
-            System.out.println(count + " -> " + page.allProductsList.get(i).getText());
-            assertTrue(page.allProductsList.get(i).isDisplayed());
+            System.out.println(count + " -> " + page.allProductNameList.get(i).getText());
+            assertTrue(page.allProductNameList.get(i).isDisplayed());
             count++;
         }
     }
