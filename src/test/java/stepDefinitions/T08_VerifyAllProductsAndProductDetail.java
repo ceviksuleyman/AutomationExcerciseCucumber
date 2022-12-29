@@ -28,7 +28,7 @@ public class T08_VerifyAllProductsAndProductDetail {
     @Then("Verify user is navigated to ALL PRODUCTS page successfully")
     public void verifyUserIsNavigatedToALLPRODUCTSPageSuccessfully() {
 
-        assertTrue(page.allProductsPage.isDisplayed());
+        assertTrue(page.allProductsTitle.isDisplayed());
     }
 
     @Then("The products list is visible")
