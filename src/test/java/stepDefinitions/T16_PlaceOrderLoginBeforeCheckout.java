@@ -25,6 +25,7 @@ public class T16_PlaceOrderLoginBeforeCheckout {
     static String firstname;
     static String lastname;
     static String country;
+    static String gender;
 
     @Then("Fill email, password and click Login button")
     public void fillEmailPasswordAndClickLoginButton() {
@@ -44,6 +45,7 @@ public class T16_PlaceOrderLoginBeforeCheckout {
         page.emailBoxSignup.sendKeys(email);
         page.signupButton.click();
         page.genderList.get(0).click();
+        gender = page.genderList.get(0).getText();
         page.passwordBoxNewSignup.sendKeys(password);
 
         selectDropDown(page.dayDDM);
@@ -87,15 +89,16 @@ public class T16_PlaceOrderLoginBeforeCheckout {
     @Then("Verify Address Details and Review Your Order T login")
     public void verifyAddressDetailsAndReviewYourOrderT() throws IOException {
 
-        String expectedName = firstname + " " + lastname;
+        String expectedName = gender + " " + firstname + " " + lastname;
         String expectedCountry = country;
         String expectedPhoneNumber = phoneNumber;
-        //System.out.println("expectedName = " + expectedName);
 
-        assertTrue(page.deliveryAddressFirstnameLastname.getText().contains(expectedName));
+        assertEquals(expectedName, page.deliveryAddressFirstnameLastname.getText());
         assertEquals(expectedCountry, page.deliveryAddressCountry.getText());
         assertEquals(expectedPhoneNumber, page.deliveryAddressPhone.getText());
+
         assertTrue(page.addressDetailsControl.isDisplayed());
+
         getScreenshotWebElement("AddressDetails", page.addressDetailsControl);
     }
 }
