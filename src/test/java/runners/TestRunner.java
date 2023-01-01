@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty",
                 "html:target/cucumber-reports/cucumber-reports.html",
                 "json:target/json-reports/cucumber.json",
-                "junit:target/xml-report/cucumber.xml",
+                "junit:target/xml-reports/cucumber.xml",
                 "rerun:target/failedRerun.txt"},
         features = {"src/test/resources/features"},
         glue = {"stepDefinitions"},
