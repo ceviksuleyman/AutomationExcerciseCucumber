@@ -109,8 +109,12 @@ public class Hooks {
         page.nameBoxSignup.sendKeys(name);
         page.emailBoxSignup.sendKeys(Faker.instance().internet().emailAddress());
         page.signupButton.click();
-        page.genderList.get(0).click();
-        gender = page.genderList.get(0).getText();
+
+        int genderIndex = random().nextInt(page.genderList.size());
+        page.genderList.get(genderIndex).click();
+        gender = page.genderList.get(genderIndex).getText();
+
+
         page.passwordBoxNewSignup.sendKeys(Faker.instance().internet().password());
 
         selectDropDown(page.dayDDM);
