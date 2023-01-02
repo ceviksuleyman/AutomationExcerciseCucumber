@@ -212,7 +212,7 @@ public class AutoExercisePage {
     public WebElement womenCategoryPage;
     @FindBy(xpath = "//*[@class='title text-center']")
     public WebElement menCategoryPage;
-    @FindBy(xpath = "//*[.='Brands']")
+    @FindBy(xpath = "//*[@class='brands_products']")
     public WebElement brandsTitle;
     @FindBy(css = ".brands-name>ul>li>a>span")
     public List<WebElement> brandsLinkList;
