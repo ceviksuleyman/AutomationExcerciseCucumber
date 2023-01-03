@@ -53,5 +53,73 @@ public class Fibonacci {
             System.out.println("Girdigin sayi fibonaccilist'inde var : " + fibonacciList);
         }
 
+
+        boolean asalMi = true;
+
+        if (number > 1) {
+
+            for (i = 2; i < number; i++) {
+
+                if (number % i == 0) {
+
+                    asalMi = false;
+
+                    break;
+                }
+            }
+            if (asalMi) System.out.println("Sayi asaldir");
+            else System.out.println("sayi asal degil ");
+
+        } else System.out.println(number + " asal degil");
+
+
+        if (number % 2 == 0) {
+
+            System.out.println("sayi cift");
+
+        } else System.out.println("Sayi tek");
+
+
+        isOddPrimeFibonacci();
+    }
+
+    public static void isOddPrimeFibonacci() {
+
+        Scanner scan = new Scanner(System.in);
+        System.out.print("enter number : ");
+        int number = scan.nextInt();
+
+        boolean[] typeNumber = new boolean[3];
+
+
+        //
+        if (number % 2 != 0) typeNumber[0] = true;
+
+
+        //
+        int point = 0;
+        for (int i = 3; i < number; i++) {
+            if (number % i == 0) {
+                point++;
+            }
+        }
+        if (point == 0 || number == 2) typeNumber[1] = true;
+
+
+        //
+        int firstNumber = 1;
+        int secondNumber = 1;
+        int fibonacci;
+        for (int i = 1; i <= number; i++) {
+
+            fibonacci = firstNumber + secondNumber;
+            firstNumber = secondNumber;
+            secondNumber = fibonacci;
+
+            if (number == fibonacci) typeNumber[2] = true;
+        }
+
+        System.out.println("isOdd : " + typeNumber[0] + " isPrime : " + typeNumber[1] + " isFibonacci :" + typeNumber[2]);
+
     }
 }
