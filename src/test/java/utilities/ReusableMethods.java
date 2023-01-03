@@ -423,6 +423,13 @@ public class ReusableMethods {
                 break;
         }
     }
+
+    public static String jsGetAttributeValue(WebElement webElement) {
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+
+        return (String) js.executeScript("return arguments[0].value", webElement);
+    }
     /*
     document.addEventListener('keydown', function (e) {
     if (e.keyCode == 119) { // F8
