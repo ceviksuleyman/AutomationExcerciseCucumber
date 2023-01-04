@@ -236,7 +236,7 @@ public class AutoExercisePage {
     public WebElement recommendedItemsTitle;
     @FindBy(css = "#recommended-item-carousel>.carousel-inner")
     public WebElement recommendedItems;
-    @FindBy(css = ".carousel-inner>div>.col-sm-4>div>div>div>a")
+    @FindBy(css = ".carousel-inner>div>.col-sm-4>div>div>div>a") //(//div[@class='recommended_items']//div[@class='col-sm-4']/div/div/div/a/i)[1]
     public List<WebElement> recommendedProductsAddToCartButtonList;
     @FindBy(css = "#address_delivery>li")
     public List<WebElement> deliveryAddress;
