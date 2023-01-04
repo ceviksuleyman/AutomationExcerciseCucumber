@@ -83,7 +83,7 @@ public class Fibonacci {
         isOddPrimeFibonacci();
     }
 
-    public static void isOddPrimeFibonacci() {
+    public static boolean[] isOddPrimeFibonacci() {
 
         Scanner scan = new Scanner(System.in);
         System.out.print("enter number : ");
@@ -97,17 +97,18 @@ public class Fibonacci {
 
 
         //
-        int point = 0;
-        for (int i = 3; i < number; i++) {
-            if (number % i == 0) {
-                point++;
+        if (number > 1) {
+            int point = 0;
+            for (int i = 3; i < number; i++) {
+                if (number % i == 0) {
+                    point++;
+                }
             }
+            if (point == 0 || number == 2) typeNumber[1] = true;
         }
-        if (point == 0 || number == 2) typeNumber[1] = true;
-
 
         //
-        int firstNumber = 1;
+        int firstNumber = 0;
         int secondNumber = 1;
         int fibonacci;
         for (int i = 1; i <= number; i++) {
@@ -120,6 +121,6 @@ public class Fibonacci {
         }
 
         System.out.println("isOdd : " + typeNumber[0] + " isPrime : " + typeNumber[1] + " isFibonacci :" + typeNumber[2]);
-
+        return typeNumber;
     }
 }
