@@ -1,7 +1,6 @@
 package utilities;
 
 import com.github.javafaker.Faker;
-import io.cucumber.core.backend.Located;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -429,6 +428,20 @@ public class ReusableMethods {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 
         return (String) js.executeScript("return arguments[0].value", webElement);
+    }
+
+    public void clickFunction(WebElement clickElement) {
+
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.elementToBeClickable(clickElement));
+        clickElement.click();
+    }
+
+    public void  sendKeysFunction(WebElement sendKeysElement,String value){
+
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOf(sendKeysElement));
+        sendKeysElement.sendKeys(value);
     }
     /*
     document.addEventListener('keydown', function (e) {
