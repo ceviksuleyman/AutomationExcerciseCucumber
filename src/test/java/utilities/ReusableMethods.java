@@ -2,6 +2,7 @@ package utilities;
 
 import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -442,6 +443,14 @@ public class ReusableMethods {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(15));
         wait.until(ExpectedConditions.visibilityOf(sendKeysElement));
         sendKeysElement.sendKeys(value);
+    }
+
+    public void Assertion(WebElement actual, String expected) {
+
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.visibilityOf(actual));
+        Assert.assertEquals(actual.getText(), expected);
+        System.out.println("Text : " + actual.getText());
     }
     /*
     document.addEventListener('keydown', function (e) {
