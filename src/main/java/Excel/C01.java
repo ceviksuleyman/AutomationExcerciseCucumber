@@ -1,7 +1,6 @@
 package Excel;
 
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.ss.usermodel.*;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -24,7 +23,15 @@ public class C01 {
         System.out.println(workbook.getSheet("Sheet1").getRow(0).getCell(0));
 
 
-        workbook.getSheet("Sheet1").getRow(2).createCell(2).setCellValue("Java");
+
+        Sheet sheet = workbook.getSheet("Sheet1");
+        Row row = sheet.getRow(0);
+        Cell cell = row.getCell(0);
+        row.removeCell(cell);
+
+
+        workbook.getSheet("Sheet1").getRow(0).createCell(0).setCellValue("Java excel");
+
 
         FileOutputStream fos = new FileOutputStream(filePath);
         workbook.write(fos);
