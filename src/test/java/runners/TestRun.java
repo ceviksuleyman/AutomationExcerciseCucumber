@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = {"src/test/resources/features"},
         glue = {"stepDefinitions"},
-        tags = "@Test23",
+        tags = "@Test23 or @Test24",
         dryRun = false
 )
 public class TestRun {
