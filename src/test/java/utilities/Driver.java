@@ -29,7 +29,11 @@ public abstract class Driver {
         if (driver == null) {
             switch (ConfigReader.getProperty("browser")) {
                 case "chrome":
-                    driver = new ChromeDriver();
+                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions.addArguments("--remote-allow-origins=*");
+                    chromeOptions.addArguments("--incognito");
+                    driver = new ChromeDriver(chromeOptions);
+                    //driver = new ChromeDriver();
                     break;
                 case "edge":
                     driver = new EdgeDriver();
