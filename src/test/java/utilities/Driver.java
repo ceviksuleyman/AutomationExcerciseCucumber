@@ -20,6 +20,7 @@ public abstract class Driver {
 
     static final int timeout = 5;
     static WebDriver driver;
+    static ChromeOptions chromeOptions;
 
     private Driver() {
 
@@ -29,7 +30,7 @@ public abstract class Driver {
         if (driver == null) {
             switch (ConfigReader.getProperty("browser")) {
                 case "chrome":
-                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions = new ChromeOptions();
                     chromeOptions.addArguments("--remote-allow-origins=*");
                     chromeOptions.addArguments("--incognito");
                     driver = new ChromeDriver(chromeOptions);
@@ -45,7 +46,10 @@ public abstract class Driver {
                     driver = new SafariDriver();
                     break;
                 default:
-                    driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
+                    chromeOptions = new ChromeOptions();
+                    chromeOptions.addArguments("--remote-allow-origins=*");
+                    driver = new ChromeDriver(chromeOptions.addArguments("--headless=new"));
+                    break;
             }
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
